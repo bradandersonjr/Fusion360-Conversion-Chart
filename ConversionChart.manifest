@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"id":	"c18d9d35-b9b1-4d5d-a9ce-8fdc713c9903",
+	"author":	"Brad Anderson Jr",
+	"description":	{
+		"":	"A simple conversion chart for quick reference."
+	},
+	"version":	"1.0",
+	"runOnStartup":	false,
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true
+}

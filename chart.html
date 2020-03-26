@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Conversion Chart</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A conversion chart for quick reference.">
+    <meta name="author" content="Brad Anderson Jr">
+    <meta name="contact" content="brad@bradandersonjr.dev">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="copyOnClick.js"></script>
+
+    <style>
+      body {
+        background-color: #faf4ef;
+      }
+
+      #conversion {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      #conversion td,
+      #conversion th {
+        border: 1px solid #ddd;
+        padding: 5px;
+        text-align: right;
+      }
+
+      #conversion tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #conversion tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      #conversion td:hover {
+        background-color: #dcc;
+        cursor: pointer;
+      }
+
+      #conversion tr:hover {
+        background-color: #ddd;
+        cursor: pointer;
+      }
+
+      #conversion th {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        text-align: center;
+        background-color: #f3ab31;
+        color: white;
+      }
+
+      #snackbar {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #444;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 15px;
+      }
+
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @-webkit-keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <table style="float: left" ; id="conversion" class="dataframe">
+      <thead>
+        <th>Fraction</th>
+        <th>Decimal</th>
+        <th>Millimeter</th>
+        <th>Even</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td onclick="myFunction()">1/64 "</td>
+          <td onclick="myFunction()">0.015625 "</td>
+          <td onclick="myFunction()">0.396875 mm</td>
+          <td onclick="myFunction()">1 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1/32 "</td>
+          <td onclick="myFunction()">0.03125 "</td>
+          <td onclick="myFunction()">0.79375 mm</td>
+          <td onclick="myFunction()">1 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">3/64 "</td>
+          <td onclick="myFunction()">0.046875 "</td>
+          <td onclick="myFunction()">1.190625 mm</td>
+          <td onclick="myFunction()">2 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1/16 "</td>
+          <td onclick="myFunction()">0.0625 "</td>
+          <td onclick="myFunction()">1.5875 mm</td>
+          <td onclick="myFunction()">2 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">5/64 "</td>
+          <td onclick="myFunction()">0.078125 "</td>
+          <td onclick="myFunction()">1.984375 mm</td>
+          <td onclick="myFunction()">2 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">3/32 "</td>
+          <td onclick="myFunction()">0.09375 "</td>
+          <td onclick="myFunction()">2.38125 mm</td>
+          <td onclick="myFunction()">3 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">7/64 "</td>
+          <td onclick="myFunction()">0.109375 "</td>
+          <td onclick="myFunction()">2.778125 mm</td>
+          <td onclick="myFunction()">3 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1/8 "</td>
+          <td onclick="myFunction()">0.125 "</td>
+          <td onclick="myFunction()">3.175 mm</td>
+          <td onclick="myFunction()">4 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">9/64 "</td>
+          <td onclick="myFunction()">0.140625 "</td>
+          <td onclick="myFunction()">3.571875 mm</td>
+          <td onclick="myFunction()">4 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">5/32 "</td>
+          <td onclick="myFunction()">0.15625 "</td>
+          <td onclick="myFunction()">3.96875 mm</td>
+          <td onclick="myFunction()">4 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">11/64 "</td>
+          <td onclick="myFunction()">0.171875 "</td>
+          <td onclick="myFunction()">4.365625 mm</td>
+          <td onclick="myFunction()">5 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">3/16 "</td>
+          <td onclick="myFunction()">0.1875 "</td>
+          <td onclick="myFunction()">4.7625 mm</td>
+          <td onclick="myFunction()">5 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">13/64 "</td>
+          <td onclick="myFunction()">0.203125 "</td>
+          <td onclick="myFunction()">5.159375 mm</td>
+          <td onclick="myFunction()">6 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">7/32 "</td>
+          <td onclick="myFunction()">0.21875 "</td>
+          <td onclick="myFunction()">5.55625 mm</td>
+          <td onclick="myFunction()">6 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">15/64 "</td>
+          <td onclick="myFunction()">0.234375 "</td>
+          <td onclick="myFunction()">5.953125 mm</td>
+          <td onclick="myFunction()">6 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1/4 "</td>
+          <td onclick="myFunction()">0.25 "</td>
+          <td onclick="myFunction()">6.35 mm</td>
+          <td onclick="myFunction()">7 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">17/64 "</td>
+          <td onclick="myFunction()">0.265625 "</td>
+          <td onclick="myFunction()">6.746875 mm</td>
+          <td onclick="myFunction()">7 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">9/32 "</td>
+          <td onclick="myFunction()">0.28125 "</td>
+          <td onclick="myFunction()">7.14375 mm</td>
+          <td onclick="myFunction()">8 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">19/64 "</td>
+          <td onclick="myFunction()">0.296875 "</td>
+          <td onclick="myFunction()">7.540625 mm</td>
+          <td onclick="myFunction()">8 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">5/16 "</td>
+          <td onclick="myFunction()">0.3125 "</td>
+          <td onclick="myFunction()">7.9375 mm</td>
+          <td onclick="myFunction()">8 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">21/64 "</td>
+          <td onclick="myFunction()">0.328125 "</td>
+          <td onclick="myFunction()">8.334375 mm</td>
+          <td onclick="myFunction()">9 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">11/32 "</td>
+          <td onclick="myFunction()">0.34375 "</td>
+          <td onclick="myFunction()">8.73125 mm</td>
+          <td onclick="myFunction()">9 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">23/64 "</td>
+          <td onclick="myFunction()">0.359375 "</td>
+          <td onclick="myFunction()">9.128125 mm</td>
+          <td onclick="myFunction()">10 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">3/8 "</td>
+          <td onclick="myFunction()">0.375 "</td>
+          <td onclick="myFunction()">9.525 mm</td>
+          <td onclick="myFunction()">10 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">25/64 "</td>
+          <td onclick="myFunction()">0.390625 "</td>
+          <td onclick="myFunction()">9.921875 mm</td>
+          <td onclick="myFunction()">10 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">13/32 "</td>
+          <td onclick="myFunction()">0.40625 "</td>
+          <td onclick="myFunction()">10.31875 mm</td>
+          <td onclick="myFunction()">11 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">27/64 "</td>
+          <td onclick="myFunction()">0.421875 "</td>
+          <td onclick="myFunction()">10.715625 mm</td>
+          <td onclick="myFunction()">11 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">7/16 "</td>
+          <td onclick="myFunction()">0.4375 "</td>
+          <td onclick="myFunction()">11.1125 mm</td>
+          <td onclick="myFunction()">12 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">29/64 "</td>
+          <td onclick="myFunction()">0.453125 "</td>
+          <td onclick="myFunction()">11.509375 mm</td>
+          <td onclick="myFunction()">12 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">15/32 "</td>
+          <td onclick="myFunction()">0.46875 "</td>
+          <td onclick="myFunction()">11.90625 mm</td>
+          <td onclick="myFunction()">12 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">31/64 "</td>
+          <td onclick="myFunction()">0.484375 "</td>
+          <td onclick="myFunction()">12.303125 mm</td>
+          <td onclick="myFunction()">13 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1/2 "</td>
+          <td onclick="myFunction()">0.5 "</td>
+          <td onclick="myFunction()">12.7 mm</td>
+          <td onclick="myFunction()">13 mm</td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="float: right" ; id="conversion" class="dataframe">
+      <thead>
+        <th>Fraction</th>
+        <th>Decimal</th>
+        <th>Millimeter</th>
+        <th>Even</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td onclick="myFunction()">33/64 "</td>
+          <td onclick="myFunction()">0.515625 "</td>
+          <td onclick="myFunction()">13.096875 mm</td>
+          <td onclick="myFunction()">14 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">17/32 "</td>
+          <td onclick="myFunction()">0.53125 "</td>
+          <td onclick="myFunction()">13.49375 mm</td>
+          <td onclick="myFunction()">14 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">35/64 "</td>
+          <td onclick="myFunction()">0.546875 "</td>
+          <td onclick="myFunction()">13.890625 mm</td>
+          <td onclick="myFunction()">14 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">9/16 "</td>
+          <td onclick="myFunction()">0.5625 "</td>
+          <td onclick="myFunction()">14.2875 mm</td>
+          <td onclick="myFunction()">15 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">37/64 "</td>
+          <td onclick="myFunction()">0.578125 "</td>
+          <td onclick="myFunction()">14.684375 mm</td>
+          <td onclick="myFunction()">15 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">19/32 "</td>
+          <td onclick="myFunction()">0.59375 "</td>
+          <td onclick="myFunction()">15.08125 mm</td>
+          <td onclick="myFunction()">16 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">39/64 "</td>
+          <td onclick="myFunction()">0.609375 "</td>
+          <td onclick="myFunction()">15.478125 mm</td>
+          <td onclick="myFunction()">16 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">5/8 "</td>
+          <td onclick="myFunction()">0.625 "</td>
+          <td onclick="myFunction()">15.875 mm</td>
+          <td onclick="myFunction()">16 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">41/64 "</td>
+          <td onclick="myFunction()">0.640625 "</td>
+          <td onclick="myFunction()">16.271875 mm</td>
+          <td onclick="myFunction()">17 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">21/32 "</td>
+          <td onclick="myFunction()">0.65625 "</td>
+          <td onclick="myFunction()">16.66875 mm</td>
+          <td onclick="myFunction()">17 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">43/64 "</td>
+          <td onclick="myFunction()">0.671875 "</td>
+          <td onclick="myFunction()">17.065625 mm</td>
+          <td onclick="myFunction()">18 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">11/16 "</td>
+          <td onclick="myFunction()">0.6875 "</td>
+          <td onclick="myFunction()">17.4625 mm</td>
+          <td onclick="myFunction()">18 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">45/64 "</td>
+          <td onclick="myFunction()">0.703125 "</td>
+          <td onclick="myFunction()">17.859375 mm</td>
+          <td onclick="myFunction()">18 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">23/32 "</td>
+          <td onclick="myFunction()">0.71875 "</td>
+          <td onclick="myFunction()">18.25625 mm</td>
+          <td onclick="myFunction()">19 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">47/64 "</td>
+          <td onclick="myFunction()">0.734375 "</td>
+          <td onclick="myFunction()">18.653125 mm</td>
+          <td onclick="myFunction()">19 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">3/4 "</td>
+          <td onclick="myFunction()">0.75 "</td>
+          <td onclick="myFunction()">19.05 mm</td>
+          <td onclick="myFunction()">20 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">49/64 "</td>
+          <td onclick="myFunction()">0.765625 "</td>
+          <td onclick="myFunction()">19.446875 mm</td>
+          <td onclick="myFunction()">20 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">25/32 "</td>
+          <td onclick="myFunction()">0.78125 "</td>
+          <td onclick="myFunction()">19.84375 mm</td>
+          <td onclick="myFunction()">20 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">51/64 "</td>
+          <td onclick="myFunction()">0.796875 "</td>
+          <td onclick="myFunction()">20.240625 mm</td>
+          <td onclick="myFunction()">21 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">13/16 "</td>
+          <td onclick="myFunction()">0.8125 "</td>
+          <td onclick="myFunction()">20.6375 mm</td>
+          <td onclick="myFunction()">21 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">53/64 "</td>
+          <td onclick="myFunction()">0.828125 "</td>
+          <td onclick="myFunction()">21.034375 mm</td>
+          <td onclick="myFunction()">22 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">27/32 "</td>
+          <td onclick="myFunction()">0.84375 "</td>
+          <td onclick="myFunction()">21.43125 mm</td>
+          <td onclick="myFunction()">22 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">55/64 "</td>
+          <td onclick="myFunction()">0.859375 "</td>
+          <td onclick="myFunction()">21.828125 mm</td>
+          <td onclick="myFunction()">22 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">7/8 "</td>
+          <td onclick="myFunction()">0.875 "</td>
+          <td onclick="myFunction()">22.225 mm</td>
+          <td onclick="myFunction()">23 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">57/64 "</td>
+          <td onclick="myFunction()">0.890625 "</td>
+          <td onclick="myFunction()">22.621875 mm</td>
+          <td onclick="myFunction()">23 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">29/32 "</td>
+          <td onclick="myFunction()">0.90625 "</td>
+          <td onclick="myFunction()">23.01875 mm</td>
+          <td onclick="myFunction()">24 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">59/64 "</td>
+          <td onclick="myFunction()">0.921875 "</td>
+          <td onclick="myFunction()">23.415625 mm</td>
+          <td onclick="myFunction()">24 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">15/16 "</td>
+          <td onclick="myFunction()">0.9375 "</td>
+          <td onclick="myFunction()">23.8125 mm</td>
+          <td onclick="myFunction()">24 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">61/64 "</td>
+          <td onclick="myFunction()">0.953125 "</td>
+          <td onclick="myFunction()">24.209375 mm</td>
+          <td onclick="myFunction()">25 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">31/32 "</td>
+          <td onclick="myFunction()">0.96875 "</td>
+          <td onclick="myFunction()">24.60625 mm</td>
+          <td onclick="myFunction()">25 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">63/64 "</td>
+          <td onclick="myFunction()">0.984375 "</td>
+          <td onclick="myFunction()">25.003125 mm</td>
+          <td onclick="myFunction()">26 mm</td>
+        </tr>
+        <tr>
+          <td onclick="myFunction()">1 "</td>
+          <td onclick="myFunction()">1.0 "</td>
+          <td onclick="myFunction()">25.4 mm</td>
+          <td onclick="myFunction()">26 mm</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="snackbar">Value copied to clipboard!</div>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 1500);
+      }
+
+    </script>
+
+  </body>
+
+</html>
